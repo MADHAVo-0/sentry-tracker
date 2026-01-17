@@ -1,0 +1,7 @@
+PORT=5001
+NODE_ENV=development
+JWT_SECRET=your_jwt_secret_key_here
+DB_PATH=./data/sentry.db
+MONITORING_PATHS=f:/SENTRY-TRACKER/test_monitor
+LOG_LEVEL=info
+REACT_APP_API_URL=http://localhost:5001

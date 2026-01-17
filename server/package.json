@@ -1,0 +1,11 @@
+{
+  "name": "sentry-tracker-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "multer": "^2.0.2"
+  }
+}

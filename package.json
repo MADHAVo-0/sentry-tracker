@@ -1,0 +1,87 @@
+{
+  "name": "sentry-doc",
+  "version": "1.0.0",
+  "description": "A secure file monitoring and analytics system",
+  "main": "electron-main.js",
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon server/index.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "electron:dev": "concurrently \"npm run server\" \"wait-on http://localhost:5001 && electron .\"",
+    "build": "cd client && npm run build",
+    "dist": "electron-builder",
+    "publish": "electron-builder --publish always",
+    "test": "jest",
+    "install-all": "npm install && cd client && npm install"
+  },
+  "keywords": [
+    "security",
+    "monitoring",
+    "file-tracking",
+    "analytics"
+  ],
+  "author": "MADHAVo-0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MADHAVo-0/sentry-tracker.git"
+  },
+  "build": {
+    "appId": "com.madhavo0.sentrytracker",
+    "productName": "Sentry Tracker",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "assets/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "MADHAVo-0",
+        "repo": "sentry-tracker"
+      }
+    ],
+    "files": [
+      "electron-main.js",
+      "server/**/*",
+      "client/build/**/*",
+      "package.json",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
+  "dependencies": {
+    "axios": "^1.13.2",
+    "bcryptjs": "^2.4.3",
+    "chokidar": "^3.5.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "electron-log": "^5.4.3",
+    "electron-updater": "^6.6.2",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "jsonwebtoken": "^9.0.0",
+    "knex": "^2.4.2",
+    "morgan": "^1.10.0",
+    "multer": "^2.0.2",
+    "nodemailer": "^7.0.10",
+    "socket.io": "^4.6.1",
+    "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.1",
+    "electron": "^39.2.7",
+    "jest": "^29.5.0",
+    "nodemon": "^2.0.22",
+    "supertest": "^6.3.3",
+    "wait-on": "^9.0.3"
+  }
+}
